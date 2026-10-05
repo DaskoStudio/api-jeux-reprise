@@ -285,3 +285,14 @@ def test_routes_asynchrones_de_demonstration(client):
     comme gelant le serveur, on ne l'appelle donc pas dans les tests."""
     assert client.get(f"{BASE}/demo/correct", params={"duree": 0}).status_code == 200
     assert client.get(f"{BASE}/demo/en-fil", params={"duree": 0}).status_code == 200
+
+
+def test_statistiques_catalogue_vide():
+    # Adapte l'appel de fonction selon ton code (ex: mock d'un dépôt vide)
+    catalogue_vide = []
+    
+    # Appel de la fonction à tester
+    resultat = fonction_statistiques(catalogue_vide)
+    
+    # Vérification du comportement attendu
+    assert resultat == 0.0  # Ou assert resultat["moyenne"] == 0.0 selon ton implémentation
