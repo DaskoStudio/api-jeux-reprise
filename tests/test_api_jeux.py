@@ -290,10 +290,10 @@ def test_routes_asynchrones_de_demonstration(client):
 def test_statistiques_catalogue_vide(client):
     # Fait une requête GET sur la route des statistiques avec le bon préfixe BASE
     reponse = client.get(f"{BASE}/jeux/statistiques")
-    
+
     # Vérifie que la requête a réussi
     assert reponse.status_code == 200
-    
+
     # Vérifie que la moyenne retournée dans le JSON est bien 0.0
     donnees = reponse.json()
     assert donnees["moyenne"] == 0.0
