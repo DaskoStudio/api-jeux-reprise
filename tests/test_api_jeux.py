@@ -285,3 +285,15 @@ def test_routes_asynchrones_de_demonstration(client):
     comme gelant le serveur, on ne l'appelle donc pas dans les tests."""
     assert client.get(f"{BASE}/demo/correct", params={"duree": 0}).status_code == 200
     assert client.get(f"{BASE}/demo/en-fil", params={"duree": 0}).status_code == 200
+
+
+def test_statistiques_catalogue_vide(client):
+    # Fait une requête GET sur la route des statistiques avec le bon préfixe BASE
+    reponse = client.get(f"{BASE}/jeux/statistiques")
+
+    # Vérifie que la requête a réussi
+    assert reponse.status_code == 200
+
+    # Vérifie que la moyenne retournée dans le JSON est bien 0.0
+    donnees = reponse.json()
+    assert donnees["moyenne"] == 0.0
